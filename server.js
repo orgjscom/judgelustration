@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
-var json2xls = require('json2xls');
-var nodeExcel  = require('excel-export');
-var excelParser = require('excel-parser');
+//var json2xls = require('json2xls');
+//var nodeExcel  = require('excel-export');
+//var excelParser = require('excel-parser');
 
 
 var app = express();
@@ -24,10 +24,10 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
 
-app.configure(function (){
-    app.use(express.cookieParser('keyboard cat'));
-    app.use(express.session({ cookie: { maxAge: 60000 }}));
-});
+//app.configure(function (){
+//    app.use(express.cookieParser('keyboard cat'));
+//    app.use(express.session({ cookie: { maxAge: 60000 }}));
+//});
 
 //if ('development' == app.get('env')) {
 //    app.use(express.errorHandler());
