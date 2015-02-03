@@ -14,7 +14,7 @@ html {
 }
 
 body {
-	font-family: 'Lato', sans-serif !important;
+	font-family: 'Roboto Slab', serif !important;
 	font-size: 14px;
 	color: #808080;
 	font-weight: normal;
@@ -106,8 +106,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1,h2 {
-	font-family: 'Montserrat', 'sans-serif';
-	font-weight: 700;
+	font-family: 'Courier New', 'sans-serif';
+	font-weight: 500;
 	text-transform: uppercase;
 }
 h1 {
@@ -1297,7 +1297,7 @@ width: -webkit-calc(100% / 2);
 .newsletter h3 {
 	font-size: 28px;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	margin-bottom: 8px;
 }
@@ -1346,7 +1346,7 @@ width: -webkit-calc(100% / 2);
 	padding-top: 15px;
 }
 .feedback-box .client-info .client-name {
-	font-family: 'Homemade Apple', serif;
+	font-family: 'Marck Script', cursive;
 	color: #404040;
 }
 .feedback-box .client-info .client-company {
