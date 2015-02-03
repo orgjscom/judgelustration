@@ -404,12 +404,14 @@ input:focus {
 -----------------------------------------*/
 
 .header {
-	background: rgba(0, 0, 0, 0.5);
 	min-height: 775px;
 	position: relative;
 	overflow: hidden;
 }
 
+h1.intro{
+	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
+}
 /*----  SECTION:  HOME > TOP BAR   ----*/
 .navbar {
 	background: #FFF;

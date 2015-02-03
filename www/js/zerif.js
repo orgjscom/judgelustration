@@ -1,107 +1,111 @@
 /* ================================
-===  BACKGROUND SLIDER        ====
-================================= */
-$.vegas('slideshow', {
-  delay:7000,
-  backgrounds:[
-    { src:'images/backgrounds/bg1.jpg', fade:1000 },
-    { src:'images/backgrounds/bg2.jpg', fade:1000 },
-    { src:'images/backgrounds/bg3.jpg', fade:1000 }
-  ]
-});
-      
-   
+ ===  BACKGROUND SLIDER        ====
+ ================================= */
+
+
 /* =================================
-   LOADER                     
-=================================== */
+ LOADER
+ =================================== */
 // makes sure the whole site is loaded
 jQuery(window).load(function() {
-        // will first fade out the loading animation
-	jQuery(".status").fadeOut();
-        // will fade out the whole DIV that covers the website.
-	jQuery(".preloader").delay(1000).fadeOut("slow");
+
+    $.vegas('slideshow', {
+        delay: 7000,
+        backgrounds:[
+            { src:'images/backgrounds/bg1.jpg', fade:1000 },
+            { src:'images/backgrounds/bg2.jpg', fade:1000 },
+            { src:'images/backgrounds/bg3.jpg', fade:1000 }
+        ]
+    });
+
+
+//    $( document ).ready(function() {
+    // will first fade out the loading animation
+    jQuery(".status").fadeOut();
+    // will fade out the whole DIV that covers the website.
+    jQuery(".preloader").delay(1000).fadeOut("slow");
 })
 
 
 /* =================================
-===  Bootstrap Fix              ====
-=================================== */
+ ===  Bootstrap Fix              ====
+ =================================== */
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-  var msViewportStyle = document.createElement('style')
-  msViewportStyle.appendChild(
-    document.createTextNode(
-      '@-ms-viewport{width:auto!important}'
+    var msViewportStyle = document.createElement('style')
+    msViewportStyle.appendChild(
+        document.createTextNode(
+            '@-ms-viewport{width:auto!important}'
+        )
     )
-  )
-  document.querySelector('head').appendChild(msViewportStyle)
+    document.querySelector('head').appendChild(msViewportStyle)
 }
 
 /* =================================
-===  STICKY NAV                 ====
-=================================== */
+ ===  STICKY NAV                 ====
+ =================================== */
 
 $(document).ready(function() {
-  $('.main-nav-list').onePageNav({
-    scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
-    scrollOffset: 75 //Height of Navigation Bar
-  });
-  
-  // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/         
-  var top = $('#main-nav').offset().top - parseFloat($('#main-nav').css('margin-top').replace(/auto/, 0));
-  
-  $(window).scroll(function (event) {
-    // what the y position of the scroll is
-    var y = $(this).scrollTop();
-    
-    // whether that's below the form
-    if (y >= top) {
-      // if so, ad the fixed class
-      $('#main-nav').addClass('fixed');
-    } else {
-      // otherwise remove it
-      $('#main-nav').removeClass('fixed');
-    }
-  });
-  
+    $('.main-nav-list').onePageNav({
+        scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
+        scrollOffset: 75 //Height of Navigation Bar
+    });
+
+    // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/
+    var top = $('#main-nav').offset().top - parseFloat($('#main-nav').css('margin-top').replace(/auto/, 0));
+
+    $(window).scroll(function (event) {
+        // what the y position of the scroll is
+        var y = $(this).scrollTop();
+
+        // whether that's below the form
+        if (y >= top) {
+            // if so, ad the fixed class
+            $('#main-nav').addClass('fixed');
+        } else {
+            // otherwise remove it
+            $('#main-nav').removeClass('fixed');
+        }
+    });
+
 });
 
 
 /*=================================
-===  OWL CROUSEL               ====
-===================================*/
-   $(document).ready(function() {
-  var owl = $("#client-feedbacks");
-  owl.owlCarousel({
-      items : 3, //10 items above 1000px browser width
-      itemsDesktop : [1000,2], //5 items between 1000px and 901px
-      itemsDesktopSmall : [900,1], // betweem 900px and 601px
-      itemsTablet: [600,1], //2 items between 600 and 0
-      itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-  });
+ ===  OWL CROUSEL               ====
+ ===================================*/
+$(document).ready(function() {
+    var owl = $("#client-feedbacks");
+    owl.owlCarousel({
+        items : 3, //10 items above 1000px browser width
+        itemsDesktop : [1000,2], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900,1], // betweem 900px and 601px
+        itemsTablet: [600,1], //2 items between 600 and 0
+        itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+    });
 });
 
 
 /*=================================
-===  SMOOTH SCROLL             ====
-=================================== */
+ ===  SMOOTH SCROLL             ====
+ =================================== */
 var scrollAnimationTime = 1200,
-        scrollAnimation = 'easeInOutExpo';
-    $('a.scrollto').bind('click.smoothscroll',function (event) {
-        event.preventDefault();
-        var target = this.hash;
-        $('html, body').stop().animate({
-            'scrollTop': $(target).offset().top
-        }, scrollAnimationTime, scrollAnimation, function () {
-            window.location.hash = target;
-        });
-    });   
+    scrollAnimation = 'easeInOutExpo';
+$('a.scrollto').bind('click.smoothscroll',function (event) {
+    event.preventDefault();
+    var target = this.hash;
+    $('html, body').stop().animate({
+        'scrollTop': $(target).offset().top
+    }, scrollAnimationTime, scrollAnimation, function () {
+        window.location.hash = target;
+    });
+});
 
 
 
 
 /* ================================
-===  PROJECT LOADING           ====
-================================= */
+ ===  PROJECT LOADING           ====
+ ================================= */
 
 jQuery(document).ready(function($) {
     $('.more').on('click', function(event) {
@@ -129,7 +133,7 @@ jQuery(document).ready(function($) {
         event.preventDefault();
 
         var portfolioList = $('#portfolio-list')
-            content = $('#loaded-content');
+        content = $('#loaded-content');
 
         content.fadeOut(400);
         $('#back-button').fadeOut(400);
@@ -141,65 +145,65 @@ jQuery(document).ready(function($) {
 });
 
 /* ================================
-===  PARALLAX                  ====
-================================= */
+ ===  PARALLAX                  ====
+ ================================= */
 $(document).ready(function(){
-  var $window = $(window);
-  $('div[data-type="background"], header[data-type="background"], section[data-type="background"]').each(function(){
-    var $bgobj = $(this);
-    $(window).scroll(function() {
-      var yPos = -($window.scrollTop() / $bgobj.data('speed'));
-      var coords = '50% '+ yPos + 'px';
-      $bgobj.css({ 
-        backgroundPosition: coords 
-      });
+    var $window = $(window);
+    $('div[data-type="background"], header[data-type="background"], section[data-type="background"]').each(function(){
+        var $bgobj = $(this);
+        $(window).scroll(function() {
+            var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+            var coords = '50% '+ yPos + 'px';
+            $bgobj.css({
+                backgroundPosition: coords
+            });
+        });
     });
-  });
 });
 
 /* ================================
-===  KNOB                      ====
-================================= */
+ ===  KNOB                      ====
+ ================================= */
 $(function() {
-$(".skill1").knob({
-                'max':100,
-                'width': 64,
-                'readOnly':true,
-                'inputColor':' #FFFFFF ',
-                'bgColor':' #222222 ',
-                'fgColor':' #e96656 '
-                });
-$(".skill2").knob({
-                'max':100,
-                'width': 64,
-                'readOnly':true,
-                'inputColor':' #FFFFFF ',
-                'bgColor':' #222222 ',
-                'fgColor':' #34d293 '
-                });
-  $(".skill3").knob({
-                'max': 100,
-                'width': 64,
-                'readOnly': true,
-                'inputColor':' #FFFFFF ',
-                'bgColor':' #222222 ',
-                'fgColor':' #3ab0e2 '
-                });
-  $(".skill4").knob({
-                'max': 100,
-                'width': 64,
-                'readOnly': true,
-                'inputColor':' #FFFFFF ',
-                'bgColor':' #222222 ',
-                'fgColor':' #E7AC44 '
-                });
+    $(".skill1").knob({
+        'max':100,
+        'width': 64,
+        'readOnly':true,
+        //'inputColor':' #FFFFFF ',
+        'bgColor':' #222222 ',
+        'fgColor':' #e96656 '
+    });
+    $(".skill2").knob({
+        'max':100,
+        'width': 64,
+        'readOnly':true,
+        'inputColor':' #FFFFFF ',
+        'bgColor':' #222222 ',
+        'fgColor':' #34d293 '
+    });
+    $(".skill3").knob({
+        'max': 100,
+        'width': 64,
+        'readOnly': true,
+        'inputColor':' #FFFFFF ',
+        'bgColor':' #222222 ',
+        'fgColor':' #3ab0e2 '
+    });
+    $(".skill4").knob({
+        'max': 100,
+        'width': 64,
+        'readOnly': true,
+        'inputColor':' #FFFFFF ',
+        'bgColor':' #222222 ',
+        'fgColor':' #E7AC44 '
+    });
 });
 
 
 
 /* =================================
-===  WOW ANIMATION             ====
-=================================== */
+ ===  WOW ANIMATION             ====
+ =================================== */
 
 new WOW().init();
 
