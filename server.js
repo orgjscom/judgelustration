@@ -69,7 +69,6 @@ app.get('/', function(req, res){
     res.render(index)
 });
 
-
 var sendObj = {};
 app.post('/send', function(req, res){
     sendObj = {
@@ -78,16 +77,16 @@ app.post('/send', function(req, res){
         "name" :    req.body.name   ,
         "subject" : req.body.subject
     };
-    funcWriteJson(sendObj);
+    funcWriteJson(sendObj, res);
     res.writeHead(302, {
         'Location': '/'
     });
     res.end();
 });
 
+var dataToWriteGlobal = [];
 
-
-var funcWriteJson = function(sendObj){
+var funcWriteJson = function(sendObj, res){
     var url = 'www/data.json';
     var readFile = fs.readFileSync( url );
     var jsonObj = JSON.parse( readFile );
@@ -96,41 +95,36 @@ var funcWriteJson = function(sendObj){
         arr.push(JSON.stringify(jsonObj[i]))
     }
     arr.push(JSON.stringify(sendObj));
-    var dataToWrite = "["+ arr +"]";
-
+    var dataToWrite = "[" + arr + "]";
     fs.writeFileSync( url , dataToWrite );
-    funcWriteExcel(dataToWrite)
+    dataToWriteGlobal = JSON.stringify(jsonObj);
+    dataToWriteNewFunc(dataToWrite);
+    funcWriteExcel(dataToWrite, res)
 };
 
 
-
-var funcWriteExcel = function(dataToWrite){
-    console.log(dataToWrite)
-    //var xls = json2xls(dataToWrite);
-    //fs.writeFileSync('www/data.xlsx', xls, 'binary');
+var funcWriteExcel = function(dataToWrite, res){
+    var data = JSON.parse(dataToWrite);
+    var xls = json2xls(data);
+    try{
+        fs.writeFileSync('www/data.xlsx', xls, 'binary');
+    } catch (e){
+        console.log(e);
+        res.writeHead(302, {
+            'Location': '/'
+        });
+        res.end();
+    }
+};
+var dataToWriteNewFunc = function(dataToWrite){
+    return dataToWrite;
 };
 
 
-
-
-
-//app.get('/24', function(req, res) {
-//
-//});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var all  = "../www/all";
+app.get('/24', function(req, res){
+    res.render(all, {"data": dataToWriteGlobal })
+});
 
 
 http.createServer(app).listen(app.get('port'), function(){
