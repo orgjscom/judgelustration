@@ -85,15 +85,15 @@ app.post('/send', function(req, res){
 });
 
 var dataToWriteGlobal = [];
+var url = 'www/data.json';
+var readFile = fs.readFileSync( url );
+var jsonObj = JSON.parse( readFile );
+var arr = [];
+for( var i = 0; i < jsonObj.length; i++){
+    arr.push(JSON.stringify(jsonObj[i]))
+}
 
 var funcWriteJson = function(sendObj, res){
-    var url = 'www/data.json';
-    var readFile = fs.readFileSync( url );
-    var jsonObj = JSON.parse( readFile );
-    var arr = [];
-    for( var i = 0; i < jsonObj.length; i++){
-        arr.push(JSON.stringify(jsonObj[i]))
-    }
     arr.push(JSON.stringify(sendObj));
     var dataToWrite = "[" + arr + "]";
     fs.writeFileSync( url , dataToWrite );
@@ -102,6 +102,7 @@ var funcWriteJson = function(sendObj, res){
     funcWriteExcel(dataToWrite, res)
 };
 
+dataToWriteGlobal = JSON.stringify(jsonObj);
 
 var funcWriteExcel = function(dataToWrite, res){
     var data = JSON.parse(dataToWrite);
@@ -130,3 +131,5 @@ app.get('/24', function(req, res){
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
+//vgavdeev@gmail.com
+//vga240392
