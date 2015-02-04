@@ -8,6 +8,8 @@
     "dependencies": {
         "express": "3.2.6",
         "hogan-express": "*",
+        "json2xls": "*",
+        "fs": "*",
         "bower": "~0.9.2",
         "mongoose": "*"
     }
