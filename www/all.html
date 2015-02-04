@@ -13,23 +13,20 @@
     <style>
         table{
             margin: 50px;
+            width: 95px!important;
         }
     </style>
 
 </head>
 <body>
+
 <script>
     $( document ).ready(function() {
         console.log( "ready!" );
         var datas = JSON.parse(  $("#data").val() );
         $.jsontotable(datas, { id: '#jsontotable', className: 'table table-hover table-bordered' });
-
-
     });
-
 </script>
-
-
 
 <div id="jsontotable" class="jsontotable"></div>
 
