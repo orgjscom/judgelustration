@@ -404,7 +404,7 @@ input:focus {
 -----------------------------------------*/
 
 .header {
-	min-height: 775px;
+	min-height: 75px;
 	position: relative;
 	overflow: hidden;
 }
@@ -1405,6 +1405,7 @@ width: -webkit-calc(100% / 2);
 -----------------------------------------*/
 
 .contact-us {
+	background-image: url("/www/images/backgrounds/bg1.jpg");
 	background: rgba(0, 0, 0, 0.5);
 	padding-bottom: 95px;
 }
