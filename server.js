@@ -5,6 +5,8 @@ var http = require('http');
 var path = require('path');
 var fs = require('fs');
 var json2xls = require('json2xls');
+var nodemailer = require('nodemailer');
+
 
 //var json2xls = require('json2xls');
 //var nodeExcel  = require('excel-export');
@@ -79,6 +81,11 @@ app.post('/send', function(req, res){
         "subject" : req.body.subject
     };
     funcWriteJson(sendObj, res);
+    try{
+        funcSendEmail(sendObj)
+    }catch(e){
+
+    }
     res.writeHead(302, {
         'Location': '/'
     });
@@ -100,8 +107,9 @@ var funcWriteJson = function(sendObj, res){
     fs.writeFileSync( url , dataToWrite );
     dataToWriteGlobal = JSON.stringify(jsonObj);
     dataToWriteNewFunc(dataToWrite);
-    funcWriteExcel(dataToWrite, res)
+    funcWriteExcel(dataToWrite, res);
 };
+
 
 dataToWriteGlobal = JSON.stringify(jsonObj);
 
@@ -118,6 +126,8 @@ var funcWriteExcel = function(dataToWrite, res){
         res.end();
     }
 };
+
+
 var dataToWriteNewFunc = function(dataToWrite){
     return dataToWrite;
 };
@@ -128,32 +138,42 @@ app.get('/24', function(req, res){
     res.render(all, {"data": dataToWriteGlobal })
 });
 
+var funcSendEmail = function(sendObj) {
 
-var nodemailer = require('nodemailer');
+    var transporter = nodemailer.createTransport( {
+        host: "mx1.hostinger.com.ua", // hostname
+        secureConnection: true, // use SSL
+        port: 2525, // port for secure SMTP
+        auth: {
+            user: 'admin@blagoustriy.net',
+            pass: '11111111'
+        }
+    });
+    var htmlMgs =
+        "<hr>email - " 	+ sendObj.email  +
+        "<hr>message - "	+ sendObj.message +
+        "<hr>name - "		+ sendObj.name	 +
+        "<hr>subject - "	+ sendObj.subject + "."
 
-var transporter = nodemailer.createTransport( {
-    host: "mx1.hostinger.com.ua", // hostname
-    secureConnection: true, // use SSL
-    port: 2525, // port for secure SMTP
-    auth: {
-        user: 'admin@blagoustriy.net',
-        pass: '11111111'
-    }
-});
-var mailOptions = {
-    from: 'judgelustration ✔ <admin@blagoustriy.net>', // sender address
-    to: 'san4osq@ya.ru', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world ✔', // plaintext body
-    html: '<b>Hello world ✔2</b>' // html body
-};
-transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
-});
+    var mailOptions = {
+        from: 'judgelustration ✔ <admin@blagoustriy.net>', // sender address
+        to: 'san4osq@ya.ru', // list of receivers
+        subject: 'Hello ✔', // Subject line
+        text: 'Hello world ✔', // plaintext body
+        html: htmlMgs // html body
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+        }else{
+            console.log('Message sent: ' + info.response + mailOptions.html);
+        }
+    });
+
+}
+
+
+
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
