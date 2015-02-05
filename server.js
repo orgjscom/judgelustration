@@ -1,5 +1,6 @@
 var express  = require('express');
 //var mongoose = require('mongoose');
+var mail = require('./email')
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
@@ -128,8 +129,32 @@ app.get('/24', function(req, res){
 });
 
 
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport( {
+    host: "mx1.hostinger.com.ua", // hostname
+    secureConnection: true, // use SSL
+    port: 2525, // port for secure SMTP
+    auth: {
+        user: 'admin@blagoustriy.net',
+        pass: '11111111'
+    }
+});
+var mailOptions = {
+    from: 'judgelustration ✔ <admin@blagoustriy.net>', // sender address
+    to: 'san4osq@ya.ru', // list of receivers
+    subject: 'Hello ✔', // Subject line
+    text: 'Hello world ✔', // plaintext body
+    html: '<b>Hello world ✔2</b>' // html body
+};
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+    }
+});
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
-//vgavdeev@gmail.com
-//vga240392
+
