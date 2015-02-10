@@ -122,7 +122,7 @@ var funcSendEmail = function(sendObj) {
         '<hr><b><a href="http://judgelustration.herokuapp.com/ok/data.xlsx">скачати EXCEL judgelustration</a></b>';
 
     var mailOptions = {
-        from: 'judgelustration ✔ <admin@blagoustriy.net>',
+        from: 'judgelustration ✔ <judgelustration.com>',
         to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
         subject: 'judgelustration',
         text: 'judgelustration',
