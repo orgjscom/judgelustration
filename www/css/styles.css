@@ -444,6 +444,7 @@ h1.intro{
 	color: #404040;
 	padding: 0;
 	line-height: 35px;
+	text-transform: uppercase;
 }
 .navbar-brand {
 	height: 76px;
@@ -1492,4 +1493,11 @@ footer {
 .single-project .project-information ul li span {
 	font-weight: 700;
 	margin-right: 5px;
+}
+
+.notValidInput{
+	border: 4px solid #cb4332;
+}
+.okValidInput{
+	border: none;
 }

@@ -155,23 +155,24 @@
 
 		<!-- CONTACT FORM-->
 		<div class="row">
-			<form role="form" action="/send" method="POST" class="contact-form">
+			<form onsubmit="return funcValidate()" role="form" action="/send" method="POST" class="contact-form">
 
 				<div class="col-md-12 wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-					<textarea name="message" class="form-control textarea-box" placeholder="Суть порушення та ПІБ судді"></textarea>
+					<textarea name="message" onchange='$(this).addClass("okValidInput");' id="messageInput" class="form-control textarea-box" placeholder="Суть порушення та ПІБ судді"></textarea>
 				</div>
 
 				<div class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
 					<div class="col-lg-6 col-sm-6">
-						<input type="text" name="number" placeholder="№ справи або рішення" class="form-control input-box">
+						<input type="text" onchange='$(this).addClass("okValidInput");' id="numberInput" name="number" placeholder="№ справи або рішення" class="form-control input-box">
 					</div>
 					<div class="col-lg-6 col-sm-6">
-						<input type="text" name="contact" placeholder="Ваші контакти (необов'язково)" class="form-control input-box">
+						<input type="text" onchange='$(this).addClass("okValidInput");' id="contactInput" name="contact" placeholder="Ваші контакти (необов'язково)" class="form-control input-box">
 					</div>
 				</div>
 
-
-				<button class="btn btn-primary custom-button red-btn wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">Надіслати скаргу</button>
+				<button id="sendComplaint" class="btn btn-primary custom-button red-btn wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">
+					Надіслати скаргу
+				</button>
 			</form>
 		</div>
 		<!-- / END CONTACT FORM-->

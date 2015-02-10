@@ -1,6 +1,6 @@
 var express  = require('express');
 //var mongoose = require('mongoose');
-var mail = require('./email')
+var mail = require('./email');
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
@@ -14,7 +14,6 @@ var nodemailer = require('nodemailer');
 
 
 var app = express();
-
 
 app.engine('html', require('hogan-express'));
 app.set('view options', {layout: true});
@@ -48,7 +47,7 @@ app.post('/send', function(req, res){
     try{
         funcSendEmail(sendObj)
     }catch(e){
-
+        console.log(e)
     }
     res.writeHead(302, {
         'Location': '/'
@@ -57,7 +56,7 @@ app.post('/send', function(req, res){
 });
 
 var dataToWriteGlobal = [];
-var url = 'www/data.json';
+var url = 'www/ok/data.json';
 var readFile = fs.readFileSync( url );
 var jsonObj = JSON.parse( readFile );
 var arr = [];
@@ -70,7 +69,7 @@ var funcWriteJson = function(sendObj, res){
     var dataToWrite = "[" + arr + "]";
     fs.writeFileSync( url , dataToWrite );
     dataToWriteGlobal = JSON.stringify(jsonObj);
-    dataToWriteNewFunc(dataToWrite);
+    //dataToWriteNewFunc(dataToWrite);
     funcWriteExcel(dataToWrite, res);
 };
 
@@ -81,7 +80,8 @@ var funcWriteExcel = function(dataToWrite, res){
     var data = JSON.parse(dataToWrite);
     var xls = json2xls(data);
     try{
-        fs.writeFileSync('www/data.xlsx', xls, 'binary');
+        fs.writeFileSync('www/ok/data.xlsx', xls, 'binary');
+        dataToWriteGlobal = dataToWrite;
     } catch (e){
         console.log(e);
         res.writeHead(302, {
@@ -92,9 +92,9 @@ var funcWriteExcel = function(dataToWrite, res){
 };
 
 
-var dataToWriteNewFunc = function(dataToWrite){
-    return dataToWrite;
-};
+//var dataToWriteNewFunc = function(dataToWrite){
+//    return dataToWrite;
+//};
 
 
 var all  = "../www/all";
@@ -116,7 +116,10 @@ var funcSendEmail = function(sendObj) {
     var htmlMgs =
         "<hr>Повідомлення - "	        + sendObj.message +
         "<hr>№ справи або рішення - "	+ sendObj.number  +
-        "<hr>Контакти - "	            + sendObj.contact + "." ;
+        "<hr>Контакти - "	            + sendObj.contact +
+        '<hr><b><a href="http://judgelustration.herokuapp.com/24">переглнути таблицю judgelustration</a></b>' +
+        '<hr><b><a href="http://judgelustration.herokuapp.com/">перейти на головну judgelustration</a></b>' +
+        '<hr><b><a href="http://judgelustration.herokuapp.com/ok/data.xlsx">скачати EXCEL judgelustration</a></b>';
 
     var mailOptions = {
         from: 'judgelustration ✔ <admin@blagoustriy.net>',
