@@ -1405,9 +1405,10 @@ width: -webkit-calc(100% / 2);
 -----------------------------------------*/
 
 .contact-us {
-	background-image: url("/www/images/backgrounds/bg1.jpg");
-	background: rgba(0, 0, 0, 0.5);
+	background-image: url("../images/backgrounds/bg1.jpg");
 	padding-bottom: 95px;
+	background-size: cover;
+	opacity: .8;
 }
 .contact-us .input-box,textarea {
 	width: 100%;

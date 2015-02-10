@@ -29,42 +29,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
 
-//app.configure(function (){
-//    app.use(express.cookieParser('keyboard cat'));
-//    app.use(express.session({ cookie: { maxAge: 60000 }}));
-//});
 
-//if ('development' == app.get('env')) {
-//    app.use(express.errorHandler());
-//    mongoose.connect('mongodb://localhost/clothing');
-//}
-
-//var MySignIn = new mongoose.Schema({
-//    name : String,
-//    pass : String
-//});
-//
-//var user = mongoose.model('users',MySignIn);
-//
-//app.post('/register', function(req, res){
-//    new user({
-//        name : req.body.name,
-//        pass : req.body.pass
-//    }).save(function(err,doc){
-//            if(err) res.json(err);
-//            else res.statusCode = 302;
-//            res.setHeader("Location", "/users");
-//            res.end();
-//        });
-//});
-
-//var admin  = "../www/admin/admin";
-//app.get('/admin', function(req, res){
-////    res.render(admin)
-//    mongoose.model('users').find(function(err, users){
-//        res.send(users);
-//    });
-//});
 
 
 var index  = "../www/index";
@@ -75,10 +40,9 @@ app.get('/', function(req, res){
 var sendObj = {};
 app.post('/send', function(req, res){
     sendObj = {
-        "email" :   req.body.email  ,
-        "message" : req.body.message,
-        "name" :    req.body.name   ,
-        "subject" : req.body.subject
+        "message" :  req.body.message,
+        "number"  :  req.body.number,
+        "contact" :  req.body.contact
     };
     funcWriteJson(sendObj, res);
     try{
@@ -135,32 +99,31 @@ var dataToWriteNewFunc = function(dataToWrite){
 
 var all  = "../www/all";
 app.get('/24', function(req, res){
-    res.render(all, {"data": dataToWriteGlobal })
+    res.render(all, { "data": dataToWriteGlobal })
 });
 
 var funcSendEmail = function(sendObj) {
 
     var transporter = nodemailer.createTransport( {
-        host: "mx1.hostinger.com.ua", // hostname
-        secureConnection: true, // use SSL
-        port: 2525, // port for secure SMTP
+        host: "mx1.hostinger.com.ua",
+        secureConnection: true,
+        port: 2525,
         auth: {
             user: 'admin@blagoustriy.net',
             pass: '11111111'
         }
     });
     var htmlMgs =
-        "<hr>email - " 	+ sendObj.email  +
-        "<hr>message - "	+ sendObj.message +
-        "<hr>name - "		+ sendObj.name	 +
-        "<hr>subject - "	+ sendObj.subject + "."
+        "<hr>Повідомлення - "	        + sendObj.message +
+        "<hr>№ справи або рішення - "	+ sendObj.number  +
+        "<hr>Контакти - "	            + sendObj.contact + "." ;
 
     var mailOptions = {
-        from: 'judgelustration ✔ <admin@blagoustriy.net>', // sender address
-        to: 'san4osq@ya.ru', // list of receivers
-        subject: 'Hello ✔', // Subject line
-        text: 'Hello world ✔', // plaintext body
-        html: htmlMgs // html body
+        from: 'judgelustration ✔ <admin@blagoustriy.net>',
+        to: 'san4osq@ya.ru',
+        subject: 'judgelustration',
+        text: 'judgelustration',
+        html: htmlMgs
     };
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
@@ -170,11 +133,48 @@ var funcSendEmail = function(sendObj) {
         }
     });
 
-}
-
+};
 
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+//app.configure(function (){
+//    app.use(express.cookieParser('keyboard cat'));
+//    app.use(express.session({ cookie: { maxAge: 60000 }}));
+//});
+
+//if ('development' == app.get('env')) {
+//    app.use(express.errorHandler());
+//    mongoose.connect('mongodb://localhost/clothing');
+//}
+
+//var MySignIn = new mongoose.Schema({
+//    name : String,
+//    pass : String
+//});
+//
+//var user = mongoose.model('users',MySignIn);
+//
+//app.post('/register', function(req, res){
+//    new user({
+//        name : req.body.name,
+//        pass : req.body.pass
+//    }).save(function(err,doc){
+//            if(err) res.json(err);
+//            else res.statusCode = 302;
+//            res.setHeader("Location", "/users");
+//            res.end();
+//        });
+//});
+
+//var admin  = "../www/admin/admin";
+//app.get('/admin', function(req, res){
+////    res.render(admin)
+//    mongoose.model('users').find(function(err, users){
+//        res.send(users);
+//    });
+//});
 
