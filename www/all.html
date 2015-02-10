@@ -10,6 +10,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="js/jquery.jsontotable.js"></script>
 
+    <script src="js/bootstrap.min.js"></script>
+
+
     <style>
         table{
             margin: 50px;
@@ -23,13 +26,30 @@
 <script>
     $( document ).ready(function() {
         console.log( "ready!" );
-        var datas = JSON.parse(  $("#data").val() );
+        var val = $("#data").val();
+        var datas = JSON.parse( val );
         $.jsontotable(datas, { id: '#jsontotable', className: 'table table-hover table-bordered' });
     });
 </script>
 
-<div id="jsontotable" class="jsontotable"></div>
-<div><div><div><div><input type="hidden" id="data" value='{{data}}'/></div></div></div></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+
+                <h1 class="btn btn-success btn-lg" ><a href="/data.xlsx" style="color: white;">скачати EXCEL</a></h1>
+                <h1>Таблиця</h1>
+            </div>
+
+            <div id="jsontotable" class="jsontotable"></div>
+
+            <div><div><div><div><input type="hidden" id="data" value='{{data}}'/></div></div></div></div>
+
+
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
