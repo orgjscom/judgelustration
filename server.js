@@ -123,7 +123,7 @@ var funcSendEmail = function(sendObj) {
 
     var mailOptions = {
         from: 'judgelustration ✔ <admin@blagoustriy.net>',
-        to: 'san4osq@ya.ru',
+        to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
         subject: 'judgelustration',
         text: 'judgelustration',
         html: htmlMgs
