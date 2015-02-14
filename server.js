@@ -141,7 +141,7 @@ var funcSendEmail = function(sendObj) {
 
 function generate_xml_sitemap() {
     // this is the source of the URLs on your site, in this case we use a simple array, actually it could come from the database
-    var urls = ['../www/index.html'];
+    var urls = ['index.html'];
     // the root of your website - the protocol and the domain name with a trailing slash
     var root_path = 'http://judgelustration.herokuapp.com/';
     // XML sitemap generation starts here
