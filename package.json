@@ -10,6 +10,7 @@
         "hogan-express": "*",
         "json2xls": "*",
         "fs": "*",
+        "sitemap": "*",
         "nodemailer": "*",
         "nodemailer-smtp-pool": "*",
         "nodemailer-smtp-transport": "*",

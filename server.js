@@ -140,9 +140,7 @@ var funcSendEmail = function(sendObj) {
 
 
 var sitemap = require('./server/xml/xml');
-
 sitemap.xml(app)
-
 
 
 http.createServer(app).listen(app.get('port'), function(){
