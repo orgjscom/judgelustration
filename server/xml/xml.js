@@ -22,8 +22,8 @@ exports.xml = function(app){
     }
 
     app.get('/sitemap.xml', function(req, res) {
-        var sitemap = generate_xml_sitemap(); // get the dynamically generated XML sitemap
-        res.header('Content-Type', 'text/xml');
+        var sitemap  =  generate_xml_sitemap(); // get the dynamically generated XML sitemap
+        res.header('Content-Type',  'text/xml');
         res.send(sitemap);
     })
 
