@@ -27,16 +27,5 @@ exports.xml = function(app){
         res.send(sitemap);
     })
 
-    var zlib = require('zlib');
-    app.get('/sitemap.xml.gz', function(req, res) {
-        // get the dynamically generated XML sitemap
-        var sitemap = generate_xml_sitemap();
-        // Set the appropriate HTTP headers to help old and new browsers equally to how to handle the output
-        res.header('Content-Type: application/x-gzip');
-        res.header('Content-Encoding: gzip');np
-        res.header('Content-Disposition: attachment; filename="sitemap.xml.gz"');
-        zlib.gzip(new Buffer(sitemap, 'utf8'), function(error, data) {
-            res.send(data);
-        });
-    });
+
 }
