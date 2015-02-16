@@ -139,6 +139,10 @@ var funcSendEmail = function(sendObj) {
 };
 
 
+var sitemap = require('./server/xml/xml');
+sitemap.xml(app)
+
+
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
