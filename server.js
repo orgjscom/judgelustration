@@ -5,7 +5,8 @@ var http = require('http');
 var path = require('path');
 var fs = require('fs');
 var json2xls = require('json2xls');
-var nodemailer = require('nodemailer');
+var sendEmail = require('./server/sendEmail/sendEmail');
+
 
 
 //var json2xls = require('json2xls');
@@ -37,6 +38,7 @@ app.get('/', function(req, res){
 });
 
 var sendObj = {};
+
 app.post('/send', function(req, res){
     sendObj = {
         "message" :  req.body.message,
@@ -45,7 +47,7 @@ app.post('/send', function(req, res){
     };
     funcWriteJson(sendObj, res);
     try{
-        funcSendEmail(sendObj)
+        sendEmail.funcSendEmail(sendObj)
     }catch(e){
         console.log(e)
     }
@@ -65,18 +67,20 @@ for( var i = 0; i < jsonObj.length; i++){
 }
 
 var funcWriteJson = function(sendObj, res){
+
     arr.push(JSON.stringify(sendObj));
     var dataToWrite = "[" + arr + "]";
     fs.writeFileSync( url , dataToWrite );
     dataToWriteGlobal = JSON.stringify(jsonObj);
-    //dataToWriteNewFunc(dataToWrite);
     funcWriteExcel(dataToWrite, res);
+
 };
 
 
 dataToWriteGlobal = JSON.stringify(jsonObj);
 
 var funcWriteExcel = function(dataToWrite, res){
+
     var data = JSON.parse(dataToWrite);
     var xls = json2xls(data);
     try{
@@ -89,59 +93,18 @@ var funcWriteExcel = function(dataToWrite, res){
         });
         res.end();
     }
-};
-
-
-//var dataToWriteNewFunc = function(dataToWrite){
-//    return dataToWrite;
-//};
-
-
-var all  = "../www/all";
-app.get('/24', function(req, res){
-    res.render(all, { "data": dataToWriteGlobal })
-});
-
-var funcSendEmail = function(sendObj) {
-
-    var transporter = nodemailer.createTransport( {
-        host: "mx1.hostinger.com.ua",
-        secureConnection: true,
-        port: 2525,
-        auth: {
-            user: 'admin@blagoustriy.net',
-            pass: '11111111'
-        }
-    });
-    var htmlMgs =
-        "<hr>Повідомлення - "	        + sendObj.message +
-        "<hr>№ справи або рішення - "	+ sendObj.number  +
-        "<hr>Контакти - "	            + sendObj.contact +
-        '<hr><b><a href="http://judgelustration.herokuapp.com/24">переглнути таблицю judgelustration</a></b>' +
-        '<hr><b><a href="http://judgelustration.herokuapp.com/">перейти на головну judgelustration</a></b>' +
-        '<hr><b><a href="http://judgelustration.herokuapp.com/ok/data.xlsx">скачати EXCEL judgelustration</a></b>';
-
-    var mailOptions = {
-        from: 'judgelustration ✔ <judgelustration.com>',
-        to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
-        subject: 'judgelustration',
-        text: 'judgelustration',
-        html: htmlMgs
-    };
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Message sent: ' + info.response + mailOptions.html);
-        }
-    });
 
 };
 
 
-var sitemap = require('./server/xml/xml');
-sitemap.xml(app)
 
+
+
+var renderData = require('./server/private/renderData');
+renderData.renderDataToAdmin(app, dataToWriteGlobal);
+
+var sitemap = require('./server/sitemap/sitemap');
+sitemap.toSitemap(app);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
