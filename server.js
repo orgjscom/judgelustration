@@ -103,8 +103,8 @@ var funcWriteExcel = function(dataToWrite, res){
 var renderData = require('./server/private/renderData');
 renderData.renderDataToAdmin(app, dataToWriteGlobal);
 
-var sitemap = require('./server/sitemap/sitemap');
-sitemap.toSitemap(app);
+//var sitemap = require('./server/sitemap/sitemap');
+//sitemap.toSitemap(app);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
