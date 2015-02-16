@@ -416,6 +416,18 @@ input:focus {
 	background-repeat: no-repeat;
 	background-size: contain;
 	margin: 0 auto;
+	position: relative;
+}
+
+.promo{
+	position: absolute;
+	top: 25%;
+	left: 15%;
+	color: #000;
+	width: 40%;
+	font-size: 16px;
+	font-weight: 700;
+	text-shadow: white 1px 0px, white 1px 1px, white 0px 1px, white -1px 1px, white -1px 0px, white -1px -1px, white 0px -1px, white 1px -1px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px;
 }
 
 h1.intro{
@@ -735,6 +747,10 @@ h1.intro{
 	.header{
 		min-height: 235px;
 	}
+	.promo{
+		top: 17%;
+		width: 37%;
+	}
 }
 @media screen and (max-width: 991px) {
 	.topHeader {
@@ -742,6 +758,10 @@ h1.intro{
 	}
 	.header{
 		min-height: 250px;
+	}
+	.promo {
+		top: 8%;
+		font-size: 13px;
 	}
 }
 @media screen and (max-width: 780px) {
@@ -751,6 +771,10 @@ h1.intro{
 	.header{
 		min-height: 250px;
 		padding-bottom: 204px !important;
+	}
+	.promo {
+		width: 65%;
+		top: 12%;
 	}
 }
 @media screen and (max-width: 700px) {
@@ -771,15 +795,31 @@ h1.intro{
 		min-height: 235px;
 		padding-bottom: 166px !important;
 	}
+	.promo {
+		width: 78%;
+		top: 6%;
+	}
 }
 
 @media screen and (max-width: 500px) {
+	.navbar-brand h5{
+		font-size: 14px;
+	}
 	.topHeader {
 		height: 75px;
 	}
 	.header{
 		min-height: 235px;
 		padding-bottom: 153px !important;
+	}
+	.promo {
+		width: 80%;
+		top: 6%;
+		font-size: 10px;
+		line-height: 1.5;
+	}
+	.white-text{
+		font-size: 12px !important;
 	}
 }
 
@@ -790,6 +830,9 @@ h1.intro{
 	.header{
 		min-height: 235px;
 		padding-bottom: 139px !important;
+	}
+	.promo{
+		font-size: 9px;
 	}
 }
 
