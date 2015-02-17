@@ -1572,6 +1572,9 @@ h1.intro{
 	background-size: cover;
 	opacity: .8;
 }
+.form-control{
+	color: black !important;
+}
 .contact-us .input-box,textarea {
 	width: 100%;
 	margin: auto;
