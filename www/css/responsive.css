@@ -15,8 +15,9 @@
 		width: 100%;
 		position: relative;
 		text-align: center;
-		margin-top: 10px;
-		padding-top: 15px;
+		margin-top: -45px;
+		padding-top: 0px;
+		height: 85px;
 	}
    
 	.responsive-logo a {
@@ -106,6 +107,12 @@
     }
 }
 
+@media screen and (max-width: 843px){
+	.contact-us{
+		padding-bottom: 0px;
+	}
+}
+
 
 @media (max-width: 767px) {
  
@@ -188,6 +195,9 @@
 }
 
 @media (max-width: 480px) {
+	.contact-us{
+		padding-top: 25px !important;
+	}
  
 
 /* HOME */

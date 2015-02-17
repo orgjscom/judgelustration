@@ -421,10 +421,10 @@ input:focus {
 
 .promo{
 	position: absolute;
-	top: 25%;
-	left: 15%;
+	top: 35%;
+	left: 17%;
 	color: #000;
-	width: 40%;
+	width: 35%;
 	font-size: 16px;
 	font-weight: 700;
 	text-shadow: white 1px 0px, white 1px 1px, white 0px 1px, white -1px 1px, white -1px 0px, white -1px -1px, white 0px -1px, white 1px -1px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px, white 0 0 3px;
@@ -642,6 +642,19 @@ h1.intro{
 	min-height: 800px;
 }
 
+.section-header{
+	padding-bottom: 25px;
+}
+
+.MakedonSay{
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.contact-us{
+	padding-top: 25px;
+}
+
 /* IMAGE GRID */
 .cbp-rfgrid {
 	margin: auto;
@@ -748,8 +761,9 @@ h1.intro{
 		min-height: 235px;
 	}
 	.promo{
-		top: 17%;
-		width: 37%;
+		top: 23%;
+		width: 42%;
+		left: 15%;
 	}
 }
 @media screen and (max-width: 991px) {
@@ -757,10 +771,11 @@ h1.intro{
 		height: 127px;
 	}
 	.header{
-		min-height: 250px;
+		min-height: 218px;
 	}
 	.promo {
-		top: 8%;
+		top: 25%;
+		width: 45%;
 		font-size: 13px;
 	}
 }
@@ -773,8 +788,9 @@ h1.intro{
 		padding-bottom: 204px !important;
 	}
 	.promo {
-		width: 65%;
-		top: 12%;
+		width: 57%;
+		top: 21%;
+		left: 18%;
 	}
 }
 @media screen and (max-width: 700px) {
@@ -786,7 +802,13 @@ h1.intro{
 		padding-bottom: 179px !important;
 	}
 }
-
+@media screen and (max-width: 620px) {
+	.promo {
+		width: 57%;
+		top: 9%;
+		left: 16%;
+	}
+}
 @media screen and (max-width: 600px) {
 	.topHeader {
 		height: 88px;
@@ -796,8 +818,8 @@ h1.intro{
 		padding-bottom: 166px !important;
 	}
 	.promo {
-		width: 78%;
-		top: 6%;
+		width: 65%;
+		top: 7%;
 	}
 }
 
@@ -813,8 +835,8 @@ h1.intro{
 		padding-bottom: 153px !important;
 	}
 	.promo {
-		width: 80%;
-		top: 6%;
+		width: 55%;
+		top: 13%;
 		font-size: 10px;
 		line-height: 1.5;
 	}
@@ -832,6 +854,8 @@ h1.intro{
 		padding-bottom: 139px !important;
 	}
 	.promo{
+		width: 55%;
+		top: 6%;
 		font-size: 9px;
 	}
 }
