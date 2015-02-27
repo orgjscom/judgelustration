@@ -133,7 +133,9 @@ h6 {
 /*---------------------------------------
  **   BUTTONS                        -----
 -----------------------------------------*/
-
+.cbp-rfgrid{
+	margin-left: 25% !important;
+}
 .buttons {
 	text-align: center;
 	margin-bottom: 100px;
@@ -326,7 +328,7 @@ h6 {
 	text-align: left;
 	text-transform: none;
 	padding: 9px;
-	min-height: 250px;
+	min-height: 150px;
 	padding-left: 15px;
 	display: inline-block;
 	border-radius: 4px;
@@ -420,6 +422,7 @@ input:focus {
 }
 
 .promo{
+	display: none;
 	position: absolute;
 	top: 35%;
 	left: 17%;
@@ -468,6 +471,7 @@ h1.intro{
 	text-transform: uppercase;
 }
 .navbar-brand {
+	display: none;
 	height: 76px;
 	position: relative;
 	line-height: 45px;
@@ -495,7 +499,7 @@ h1.intro{
 .navbar-toggle {
 	border: 0;
 	background-color: #808080;
-	margin-top: 23px;
+	margin-top: 0px;
 }
 .navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus {
 	background-color: #e96656;
@@ -747,18 +751,18 @@ h1.intro{
 
 @media screen and (min-width: 1200px) {
 	.topHeader{
-		height: 200px;
+		height: 100px;
 	}
 	.header{
-		min-height: 275px;
+		min-height: 175px;
 	}
 }
 @media screen and (max-width: 1199px) {
 	.topHeader {
-		height: 165px;
+		height: 100px;
 	}
 	.header{
-		min-height: 235px;
+		min-height: 165px;
 	}
 	.promo{
 		top: 23%;
@@ -768,10 +772,10 @@ h1.intro{
 }
 @media screen and (max-width: 991px) {
 	.topHeader {
-		height: 127px;
+		height: 64px;
 	}
 	.header{
-		min-height: 218px;
+		min-height: 130px;
 	}
 	.promo {
 		top: 25%;
@@ -779,13 +783,13 @@ h1.intro{
 		font-size: 13px;
 	}
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 768px) {
 	.topHeader {
-		height: 126px;
+		height: 64px;
 	}
 	.header{
-		min-height: 250px;
-		padding-bottom: 204px !important;
+		min-height: 185px;
+		padding-bottom: 185px !important;
 	}
 	.promo {
 		width: 57%;
@@ -795,7 +799,7 @@ h1.intro{
 }
 @media screen and (max-width: 700px) {
 	.topHeader {
-		height: 101px;
+		height: 62px;
 	}
 	.header{
 		min-height: 235px;
@@ -828,7 +832,7 @@ h1.intro{
 		font-size: 14px;
 	}
 	.topHeader {
-		height: 75px;
+		height: 45px;
 	}
 	.header{
 		min-height: 235px;
@@ -847,7 +851,7 @@ h1.intro{
 
 @media screen and (max-width: 400px) {
 	.topHeader {
-		height: 61px;
+		height: 30px;
 	}
 	.header{
 		min-height: 235px;
