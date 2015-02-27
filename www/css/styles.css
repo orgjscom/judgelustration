@@ -684,25 +684,13 @@ h1.intro{
 .cbp-rfgrid li a,.cbp-rfgrid li a img {
 	display: block;
 	max-width: 100%;
-	-webkit-transform: scale(1,1);
-	-ms-transform: scale(1,1);
-	transform: scale(1,1);
-	-webkit-transition-timing-function: ease-in;
-	transition-timing-function: ease-in;
-	-webkit-transition-duration: 250ms;
-	transition-duration: 250ms;
+
 	cursor: pointer;
-	-webkit-transition: 0.4s all linear;
-	transition: 0.4s all linear;
+
 }
-.cbp-rfgrid li a:hover img {
-	-webkit-transform: scale(1.05,1.07);
-	-ms-transform: scale(1.05,1.07);
-	transform: scale(1.05,1.07);
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-	-webkit-transition-duration: 250ms;
-	transition-duration: 250ms;
+.cbp-rfgrid li a div {
+	display: block;
+	opacity: 1!important;
 }
 
 /* Flexbox is used for centering the heading */
