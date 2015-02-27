@@ -7,6 +7,12 @@
     
 }
 
+@media (max-width: 768px){
+	.cbp-rfgrid{
+		margin-left: 0 !important;
+	}
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
     .textarea-box{
 		min-height: 100px;
@@ -102,6 +108,9 @@
 	}
 }
 @media (max-width: 1024px) {
+	.cbp-rfgrid{
+		margin-left: 18%;
+	}
     .features {
         text-align: center;
     }

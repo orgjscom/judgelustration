@@ -133,6 +133,10 @@ h6 {
 /*---------------------------------------
  **   BUTTONS                        -----
 -----------------------------------------*/
+
+.focus{
+	padding-bottom:0px !important;
+}
 .cbp-rfgrid{
 	margin-left: 25% !important;
 }
@@ -643,7 +647,7 @@ h1.intro{
 .works {
 	padding-bottom: 100px;
 	background: #FFFFFF;
-	min-height: 800px;
+	min-height: 350px;
 }
 
 .section-header{
@@ -784,6 +788,9 @@ h1.intro{
 	}
 }
 @media screen and (max-width: 768px) {
+	.cbp-rfgrid{
+		margin-left: 0 !important;
+	}
 	.topHeader {
 		height: 64px;
 	}
