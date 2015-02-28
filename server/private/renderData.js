@@ -1,4 +1,4 @@
-exports.renderDataToAdmin = function(app, dataToWriteGlobal) {
+exports.renderDataToAdmin = function(app) {
 
     var all  = "../www/all";
     app.get('/24', function(req, res){
