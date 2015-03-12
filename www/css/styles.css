@@ -1663,3 +1663,7 @@ footer {
 .okValidInput{
 	border: none;
 }
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+	color: #404040 !important;
+	background-color: transparent;
+}
