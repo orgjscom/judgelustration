@@ -137,9 +137,9 @@ h6 {
 .focus{
 	padding-bottom:0px !important;
 }
-.cbp-rfgrid{
-	margin-left: 25% !important;
-}
+/*.cbp-rfgrid{*/
+	/*margin-left: 25% !important;*/
+/*}*/
 .buttons {
 	text-align: center;
 	margin-bottom: 100px;
@@ -358,7 +358,7 @@ input:focus {
 
 /*** SECTION HEADERS ***/
 .focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us {
-	padding-top: 100px;
+	margin-top: 100px;
 }
 .section-header {
 	text-align: center;
@@ -701,7 +701,7 @@ h1.intro{
 	right: 10px;
 	bottom: 10px;
 	background: rgba(0,0,0,0.5);
-	padding-top: 25%;
+	padding-top: 20%;
 	text-align: center;
 	filter: alpha(opacity=0);
 	opacity: 0;

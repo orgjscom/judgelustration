@@ -30,11 +30,11 @@
                 messageInput.addClass("notValidInput");
                 return false;
             }
-            if( numberInput.val()   == "" ){
-                numberInput.removeClass("okValidInput");
-                numberInput.addClass("notValidInput");
-                return false;
-            }
+            //if( numberInput.val()   == "" ){
+            //    numberInput.removeClass("okValidInput");
+            //    numberInput.addClass("notValidInput");
+            //    return false;
+            //}
         }
 
         //objValidate = funcValidate();

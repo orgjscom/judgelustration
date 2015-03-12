@@ -48,11 +48,70 @@
 
 	<!-- JQUERY -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-
 </head>
 
 
 <body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function(){
+			var scroll = false;
+			if (document.location.hash == "#list1"){
+				$('#list1').click();
+				scroll = true;
+			}
+			if(scroll){
+				setTimeout(function(){
+					$(document.body).animate({
+						scrollTop: $('#works').offset().top
+					});
+
+				},1000);
+			}
+			if (document.location.hash == "#list2"){
+				$('#list2').click();
+				scroll = true;
+			}
+			if(scroll){
+				setTimeout(function(){
+					$(document.body).animate({
+						scrollTop: $('#works').offset().top
+					});
+
+				},1000);
+			}
+			if (document.location.hash == "#list3"){
+				$('#list3').click();
+				scroll = true;
+			}
+			if(scroll){
+				setTimeout(function(){
+					$(document.body).animate({
+						scrollTop: $('#works').offset().top
+					});
+
+				},1000);
+			}
+			if (document.location.hash == "#list4"){
+				$('#list4').click();
+				scroll = true;
+			}
+			if(scroll){
+				setTimeout(function(){
+					$(document.body).animate({
+						scrollTop: $('#works').offset().top
+					});
+
+				},1000);
+			}
+		},2000);
+
+	});
+
+
+</script>
+
 <!-- =========================
    PRE LOADER       
 ============================== -->
@@ -150,6 +209,7 @@
 			<!-- SECTION TITLE -->
 
 			<div class="white-text" style="font-size: 16px !important;color:white;text-shadow: -3px 0px 10px rgba(150, 150, 150, 1); width: 100%;">
+				<div class="MakedonSay">Нам подано <span style="font-weight: 900;">24</span> скарги <br><br></div>
 				<div class="MakedonSay">Ви стали жертвою судового свавілля? Корумпований суддя – порушив Ваші права на справедливий суд?</div>
 				<div class="MakedonSay">Обов’язково напишіть нам! В межах люстрації судової системи, ми перевіримо ваші данні і допоможемо Вам!</div><br>
 				<div style="color: #fff; text-align: right !important;">Голова підкомітету,<br> народний депутат України – Юрій Македон</div>
@@ -172,7 +232,7 @@
 
 				<div class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
 					<div class="col-lg-6 col-sm-6">
-						<input type="text" onchange='$(this).addClass("okValidInput");' id="numberInput" name="number" placeholder="№ справи або рішення" class="form-control input-box">
+						<input type="text" onchange='$(this).addClass("okValidInput");' id="numberInput" name="number" placeholder="№ справи або рішення (необов'язково)" class="form-control input-box">
 					</div>
 					<div class="col-lg-6 col-sm-6">
 						<input type="text" onchange='$(this).addClass("okValidInput");' id="contactInput" name="contact" placeholder="Ваші контакти (необов'язково)" class="form-control input-box">
@@ -294,9 +354,8 @@
 
 			<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
 			<h6>
-				Комітет Верховної Ради України з питань правової політики та правосуддя повідомляє про
-				підготовку до розгляду Верховною Радою України матеріалів щодо обрання кандидатів на посаду
-				судді безстроково та переведення суддів, обраних безстроково, до іншого суду
+				Ми систематично публікуємо актуальні списки суддів, які подані у Верховну Раду України для призначення на посади,  а також суддів, які очікують на проходження атестації.
+				Якщо серед вказаних осіб є судді, що  порушували закон, приймали неправосудні рішення – будь ласка, повідомте нас про це!
 			</h6>
 		</div>
 		<!-- / END SECTION HEADER -->
@@ -309,12 +368,46 @@
 				<ul class="cbp-rfgrid">
 
 					<!-- PROJECT -->
-					<li class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-						<a  target="_blank" href="project1.html"   class="more"><img src="images/portfolio/1.jpg"  alt="project"/>
+					<li class="wow fadeInDown animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+						<a  target="_blank" id="list1" href="project2.html" class="more"><img src="images/portfolio/2.jpg" alt="project" />
 							<div class="project-info">
 								<div class="project-details">
 									<h5 class="white-text red-border-bottom">
-										Обрання суддів, раніше обраних безстроково,<br>на посади суддів
+										Судді, які плануються <br> обиратися безстроково
+									</h5>
+									<div class="details white-text">
+										детальніше
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<!-- / PROJECT -->
+
+					<!-- PROJECT -->
+					<li class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+						<a  target="_blank" id="list2" href="project1.html"   class="more"><img src="images/portfolio/1.jpg"  alt="project"/>
+							<div class="project-info">
+								<div class="project-details">
+									<h5 class="white-text red-border-bottom">
+										Судді, які плануються обиратися <br> на нові посади
+									</h5>
+									<div class="details white-text">
+										детальніше
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<!-- / PROJECT -->
+
+					<!-- PROJECT -->
+					<li class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+						<a  target="_blank" id="list3" href="project3.html"   class="more"><img src="images/portfolio/1.jpg"  alt="project"/>
+							<div class="project-info">
+								<div class="project-details">
+									<h5 class="white-text red-border-bottom">
+										Судді, які не пройшли комітет
 									</h5>
 									<div class="details white-text">
 										детальніше
@@ -327,11 +420,12 @@
 
 					<!-- PROJECT -->
 					<li class="wow fadeInDown animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-						<a  target="_blank" href="project2.html" class="more"><img src="images/portfolio/2.jpg" alt="project" />
+						<a  target="_blank" id="list4" href="project4.html" class="more"><img src="images/portfolio/2.jpg" alt="project" />
 							<div class="project-info">
 								<div class="project-details">
 									<h5 class="white-text red-border-bottom">
-										Обрання на посади суддів безстроково </h5>
+										Cудді, які не пройшли кваліфікаційне <br> оцінювання
+									</h5>
 									<div class="details white-text">
 										детальніше
 									</div>

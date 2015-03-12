@@ -108,9 +108,9 @@
 	}
 }
 @media (max-width: 1024px) {
-	.cbp-rfgrid{
-		margin-left: 18%;
-	}
+	/*.cbp-rfgrid{*/
+		/*margin-left: 18%;*/
+	/*}*/
     .features {
         text-align: center;
     }
