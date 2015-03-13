@@ -357,7 +357,10 @@ input:focus {
 -----------------------------------------*/
 
 /*** SECTION HEADERS ***/
-.focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us {
+.focus,.about-us,.features,.packages,.products,.testimonial,.contact-us {
+	padding-top: 100px;
+}
+.works{
 	margin-top: 100px;
 }
 .section-header {
