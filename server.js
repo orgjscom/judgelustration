@@ -7,12 +7,6 @@ var fs = require('fs');
 var json2xls = require('json2xls');
 var nodemailer = require('nodemailer');
 
-
-//var json2xls = require('json2xls');
-//var nodeExcel  = require('excel-export');
-//var excelParser = require('excel-parser');
-
-
 var app = express();
 
 app.engine('html', require('hogan-express'));
@@ -36,6 +30,11 @@ app.get('/', function(req, res){
     res.render(index)
 });
 
+var getQuestion  = "../www/question";
+app.get('/question', function(req, res){
+    res.render(question, { "question": question })
+});
+
 var sendObj = {};
 app.post('/send', function(req, res){
     sendObj = {
@@ -44,52 +43,52 @@ app.post('/send', function(req, res){
         "contact" :  req.body.contact
     };
     funcWriteJson(sendObj, res);
-    try{
-        funcSendEmail(sendObj)
-    }catch(e){
-        console.log(e)
-    }
+    //try{
+    //    funcSendEmail(sendObj)
+    //}catch(e){
+    //    console.log(e)
+    //}
     res.writeHead(302, {
         'Location': '/'
     });
     res.end();
 });
 
-var dataToWriteGlobal = [];
-var url = 'www/ok/data.json';
-var readFile = fs.readFileSync( url );
-var jsonObj = JSON.parse( readFile );
-var arr = [];
-for( var i = 0; i < jsonObj.length; i++){
-    arr.push(JSON.stringify(jsonObj[i]))
-}
+//var dataToWriteGlobal = [];
+//var url = 'www/ok/data.json';
+//var readFile = fs.readFileSync( url );
+//var jsonObj = JSON.parse( readFile );
+//var arr = [];
+//for( var i = 0; i < jsonObj.length; i++){
+//    arr.push(JSON.stringify(jsonObj[i]))
+//}
 
-var funcWriteJson = function(sendObj, res){
-    arr.push(JSON.stringify(sendObj));
-    var dataToWrite = "[" + arr + "]";
-    fs.writeFileSync( url , dataToWrite );
-    dataToWriteGlobal = JSON.stringify(jsonObj);
-    //dataToWriteNewFunc(dataToWrite);
-    funcWriteExcel(dataToWrite, res);
-};
-
-
-dataToWriteGlobal = JSON.stringify(jsonObj);
-
-var funcWriteExcel = function(dataToWrite, res){
-    var data = JSON.parse(dataToWrite);
-    var xls = json2xls(data);
-    try{
-        fs.writeFileSync('www/ok/data.xlsx', xls, 'binary');
-        dataToWriteGlobal = dataToWrite;
-    } catch (e){
-        console.log(e);
-        res.writeHead(302, {
-            'Location': '/'
-        });
-        res.end();
-    }
-};
+//var funcWriteJson = function(sendObj, res){
+//    arr.push(JSON.stringify(sendObj));
+//    var dataToWrite = "[" + arr + "]";
+//    fs.writeFileSync( url , dataToWrite );
+//    dataToWriteGlobal = JSON.stringify(jsonObj);
+//    //dataToWriteNewFunc(dataToWrite);
+//    funcWriteExcel(dataToWrite, res);
+//};
+//
+//
+//dataToWriteGlobal = JSON.stringify(jsonObj);
+//
+//var funcWriteExcel = function(dataToWrite, res){
+//    var data = JSON.parse(dataToWrite);
+//    var xls = json2xls(data);
+//    try{
+//        fs.writeFileSync('www/ok/data.xlsx', xls, 'binary');
+//        dataToWriteGlobal = dataToWrite;
+//    } catch (e){
+//        console.log(e);
+//        res.writeHead(302, {
+//            'Location': '/'
+//        });
+//        res.end();
+//    }
+//};
 
 
 //var dataToWriteNewFunc = function(dataToWrite){
@@ -102,41 +101,41 @@ app.get('/24', function(req, res){
     res.render(all, { "data": dataToWriteGlobal })
 });
 
-var funcSendEmail = function(sendObj) {
+//var funcSendEmail = function(sendObj) {
 
-    var transporter = nodemailer.createTransport( {
-        host: "mx1.hostinger.com.ua",
-        secureConnection: true,
-        port: 2525,
-        auth: {
-            user: 'admin@blagoustriy.net',
-            pass: '11111111'
-        }
-    });
-    var htmlMgs =
-        "<hr>Повідомлення - "	        + sendObj.message +
-        "<hr>№ справи або рішення - "	+ sendObj.number  +
-        "<hr>Контакти - "	            + sendObj.contact +
-        '<hr><b><a href="http://judgelustration.herokuapp.com/24">переглнути таблицю judgelustration</a></b>' +
-        '<hr><b><a href="http://judgelustration.herokuapp.com/">перейти на головну judgelustration</a></b>' +
-        '<hr><b><a href="http://judgelustration.herokuapp.com/ok/data.xlsx">скачати EXCEL judgelustration</a></b>';
-
-    var mailOptions = {
-        from: 'judgelustration ✔ <judgelustration.com>',
-        to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
-        subject: 'judgelustration',
-        text: 'judgelustration',
-        html: htmlMgs
-    };
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Message sent: ' + info.response + mailOptions.html);
-        }
-    });
-
-};
+//    var transporter = nodemailer.createTransport( {
+//        host: "mx1.hostinger.com.ua",
+//        secureConnection: true,
+//        port: 2525,
+//        auth: {
+//            user: 'admin@blagoustriy.net',
+//            pass: '11111111'
+//        }
+//    });
+//    var htmlMgs =
+//        "<hr>Повідомлення - "	        + sendObj.message +
+//        "<hr>№ справи або рішення - "	+ sendObj.number  +
+//        "<hr>Контакти - "	            + sendObj.contact +
+//        '<hr><b><a href="http://judgelustration.herokuapp.com/24">переглнути таблицю judgelustration</a></b>' +
+//        '<hr><b><a href="http://judgelustration.herokuapp.com/">перейти на головну judgelustration</a></b>' +
+//        '<hr><b><a href="http://judgelustration.herokuapp.com/ok/data.xlsx">скачати EXCEL judgelustration</a></b>';
+//
+//    var mailOptions = {
+//        from: 'judgelustration ✔ <judgelustration.com>',
+//        to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
+//        subject: 'judgelustration',
+//        text: 'judgelustration',
+//        html: htmlMgs
+//    };
+//    transporter.sendMail(mailOptions, function(error, info){
+//        if(error){
+//            console.log(error);
+//        }else{
+//            console.log('Message sent: ' + info.response + mailOptions.html);
+//        }
+//    });
+//
+//};
 
 
 //var sitemap = require('./server/xml/xml');
