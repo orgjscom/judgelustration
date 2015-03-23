@@ -1506,8 +1506,8 @@ h1.intro{
 	color: #909090;
 }
 .feedback-box .client {
-	margin-top: 30px;
-	height: 73px;
+	margin: 0 auto;
+	height: 37px;
 	position: relative;
 }
 .feedback-box .quote {
@@ -1521,7 +1521,6 @@ h1.intro{
 	padding-top: 15px;
 }
 .feedback-box .client-info .client-name {
-	font-family: 'Marck Script', cursive;
 	color: #404040;
 }
 .feedback-box .client-info .client-company {
@@ -1651,6 +1650,14 @@ footer {
 	line-height: 40px;
 	border-bottom: 1px dotted #dadada;
 }
+
+.single-project h4 {
+	margin-bottom: 10px;
+	padding-bottom: 7px;
+	line-height: 20px;
+	border-bottom: 1px dotted #dadada;
+}
+
 .single-project .project-description {
 	margin-bottom: 25px;
 }
