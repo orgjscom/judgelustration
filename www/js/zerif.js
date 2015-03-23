@@ -79,10 +79,10 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
  =================================== */
 
 $(document).ready(function() {
-    $('.main-nav-list').onePageNav({
-        scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
-        scrollOffset: 75 //Height of Navigation Bar
-    });
+    //$('.main-nav-list').onePageNav({
+    //    scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
+    //    scrollOffset: 75 //Height of Navigation Bar
+    //});
 
     // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/
     var top = $('#main-nav').offset().top - parseFloat($('#main-nav').css('margin-top').replace(/auto/, 0));
