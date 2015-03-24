@@ -1487,7 +1487,7 @@ h1.intro{
  **   SECTION:  TESTIMONIAL            -----
 -----------------------------------------*/
 .testimonial {
-	background: #dbbf56;
+	background: grey;
 	padding-bottom: 90px;
 }
 #client-feedbacks .feedback-box {
@@ -1539,7 +1539,7 @@ h1.intro{
 	text-align: center;
 }
 .owl-theme .owl-controls .owl-page span {
-	background: #886e0e;
+	background: white;
 	border-radius: 50%;
 }
 .customNavigation a {
