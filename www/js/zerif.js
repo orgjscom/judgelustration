@@ -1,23 +1,23 @@
 
 
-    //$( document ).ready(function() {
-        //$("#sendComplaint").click(function(){
-        //    var numberInput  =  $("#numberInput")
-        //    var messageInput = $("#messageInput")
-        //    numberInput.addClass("okValidInput")
-        //    messageInput.addClass("okValidInput")
-        //
-        //
-        //    if(  messageInput.val() == "" ){
-        //        messageInput.addClass("notValidInput");
-        //        return;
-        //    }
-        //    if( numberInput.val()   == ""  ){
-        //        numberInput.addClass("notValidInput");
-        //        return;
-        //    }
-        //
-        //})
+    $( document ).ready(function() {
+        $("#sendComplaint").click(function(){
+            var numberInput  =  $("#numberInput")
+            var messageInput = $("#messageInput")
+            numberInput.addClass("okValidInput")
+            messageInput.addClass("okValidInput")
+
+
+            if(  messageInput.val() == "" ){
+                messageInput.addClass("notValidInput");
+                return;
+            }
+            if( numberInput.val()   == ""  ){
+                numberInput.addClass("notValidInput");
+                return;
+            }
+
+        })
         function funcValidate (){
             var messageInput = $("#messageInput");
             var numberInput  =  $("#numberInput");
@@ -38,7 +38,7 @@
         }
 
         //objValidate = funcValidate();
-    //});
+    });
 
 
 //jQuery(window).load(function() {
