@@ -41,7 +41,7 @@ app.post('/send', function(req, res){
     };
     funcWriteJson(sendObj, res);
     try{
-        funcSendEmail(sendObj)
+     funcSendEmail(sendObj)
     }catch(e){
         console.log(e)
     }
