@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
     <url>
         <loc>http://judgelustration.com.ua/</loc>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/index.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/philosophy.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/works.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/news.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project12.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project2.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project1.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project3.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project4.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project10.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project9.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project8.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project6.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project5.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://judgelustration.com.ua/project7.html</loc>
+        <lastmod>2015-04-09T18:36:48+00:00</lastmod>
     </url>
 </urlset>
