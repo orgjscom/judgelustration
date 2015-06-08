@@ -9,7 +9,6 @@
         "express": "3.2.6",
         "hogan-express": "*",
         "json2xls": "*",
-        "fs": "*",
         "nodemon": "*",
         "sitemap": "*",
         "nodemailer": "*",
