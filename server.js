@@ -46,7 +46,7 @@ app.post('/send', function(req, res){
         console.log(e)
     }
     res.writeHead(302, {
-        'Location': '/'
+        'Location': '/error'
     });
     res.end();
 });
