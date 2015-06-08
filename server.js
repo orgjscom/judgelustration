@@ -6,14 +6,13 @@ var json2xls = require('json2xls');
 var nodemailer = require('nodemailer');
 var app = express();
 
-
 var transporter = nodemailer.createTransport( {
-    host: "mx1.hostinger.com.ua",
+    host: "smtp.gmail.com",
     secureConnection: true,
-    port: 2525,
+    port: 587,
     auth: {
-        user: 'admin@blagoustriy.net',
-        pass: '11111111'
+        user: 'MYACCOUNT',
+        pass: 'MYPASSWORD'
     }
 });
 
@@ -175,10 +174,6 @@ var funcSendEmail = function(sendObj) {
 
 
 
-    /**
-     *
-     * @type {string}
-     */
     var htmlMgs =
         "<hr>Повідомлення - "	        + sendObj.message +
         "<hr>№ справи або рішення - "	+ sendObj.number  +
@@ -187,10 +182,6 @@ var funcSendEmail = function(sendObj) {
         '<hr><b><a href="http://judgelustration.herokuapp.com/">перейти на головну judgelustration</a></b>' +
         '<hr><b><a href="http://judgelustration.herokuapp.com/ok/data.xlsx">скачати EXCEL judgelustration</a></b>';
 
-    /**
-     *
-     * @type {{from: string, to: string, subject: string, text: string, html: string}}
-     */
     var mailOptions = {
         from: 'judgelustration ✔ <judgelustration.com>',
         to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
@@ -199,10 +190,9 @@ var funcSendEmail = function(sendObj) {
         html: htmlMgs
     };
     transporter.sendMail(mailOptions, function(error, info){
-
         if(error){
             console.log(error);
-        } else{
+        }else{
             console.log('Message sent: ' + info.response + mailOptions.html);
         }
     });
@@ -210,8 +200,49 @@ var funcSendEmail = function(sendObj) {
 };
 
 
+//var sitemap = require('./server/xml/xml');
+//sitemap.xml(app)
+
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+//app.configure(function (){
+//    app.use(express.cookieParser('keyboard cat'));
+//    app.use(express.session({ cookie: { maxAge: 60000 }}));
+//});
+
+//if ('development' == app.get('env')) {
+//    app.use(express.errorHandler());
+//    mongoose.connect('mongodb://localhost/clothing');
+//}
+
+//var MySignIn = new mongoose.Schema({
+//    name : String,
+//    pass : String
+//});
+
+//var user = mongoose.model('users',MySignIn);
+//
+//app.post('/register', function(req, res){
+//    new user({
+//        name : req.body.name,
+//        pass : req.body.pass
+//    }).save(function(err,doc){
+//            if(err) res.json(err);
+//            else res.statusCode = 302;
+//            res.setHeader("Location", "/users");
+//            res.end();
+//        });
+//});
+//
+//var admin  = "../www/admin/admin";
+//app.get('/admin', function(req, res){
+//    res.render(admin)
+//    mongoose.model('users').find(function(err, users){
+//        res.send(users);
+//    });
+//});
 
