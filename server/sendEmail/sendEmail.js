@@ -22,6 +22,7 @@ exports.funcSendEmail = function(sendObj){
     var mailOptions = {
         from: 'Люстрація суддів judgelustration.com.ua ✔ <judgelustration.com.ua>',
         to: 'san4osq@ya.ru, yura.makedon@gmail.com, vgavdeev@gmail.com',
+       // to: 'vgavdeev@gmail.com',
         subject: 'judgelustration',
         text: 'judgelustration',
         html: htmlMgs
