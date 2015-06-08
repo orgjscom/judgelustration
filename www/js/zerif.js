@@ -1,39 +1,43 @@
     $( document ).ready(function() {
-        $("#sendComplaint").click(function(){
-            var numberInput  =  $("#numberInput")
-            var messageInput = $("#messageInput")
-            numberInput.addClass("okValidInput")
-            messageInput.addClass("okValidInput")
 
 
-            if(  messageInput.val() == "" ){
-                messageInput.addClass("notValidInput");
-                return;
-            }
-            if( numberInput.val()   == ""  ){
-                numberInput.addClass("notValidInput");
-                return;
-            }
-
-        })
-        function funcValidate (){
-            var messageInput = $("#messageInput");
-            var numberInput  =  $("#numberInput");
-             numberInput.addClass("okValidInput");
-            messageInput.addClass("okValidInput");
-
-
-            if(  messageInput.val() == "" ){
-                messageInput.removeClass("okValidInput");
-                messageInput.addClass("notValidInput");
-                return false;
-            }
-            //if( numberInput.val()   == "" ){
-            //    numberInput.removeClass("okValidInput");
-            //    numberInput.addClass("notValidInput");
-            //    return false;
-            //}
-        }
+        //$('.contact-form').submit(function(){
+        //    funcValidate ()
+        //});
+        //$("#sendComplaint").click(function(){
+        //    var numberInput  =  $("#numberInput");
+        //    var messageInput = $("#messageInput");
+        //    numberInput.addClass("okValidInput");
+        //    messageInput.addClass("okValidInput");
+        //    if(  messageInput.val() == "" ){
+        //        messageInput.addClass("notValidInput");
+        //        return;
+        //    }
+        //    if( numberInput.val()   == ""  ){
+        //        numberInput.addClass("notValidInput");
+        //        return;
+        //    }
+        //    $('.contact-form').submit()
+        //
+        //});
+        //function funcValidate (){
+        //    var messageInput = $("#messageInput");
+        //    var numberInput  =  $("#numberInput");
+        //     numberInput.addClass("okValidInput");
+        //    messageInput.addClass("okValidInput");
+        //
+        //
+        //    if(  messageInput.val() == "" ){
+        //        messageInput.removeClass("okValidInput");
+        //        messageInput.addClass("notValidInput");
+        //        return false;
+        //    }
+        //    //if( numberInput.val()   == "" ){
+        //    //    numberInput.removeClass("okValidInput");
+        //    //    numberInput.addClass("notValidInput");
+        //    //    return false;
+        //    //}
+        //}
 
         //objValidate = funcValidate();
     });
