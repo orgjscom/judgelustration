@@ -47,11 +47,11 @@
 	<![endif]-->,
 
 
-	<script type="text/javascript">
-		<!--
-		window.location="/error.html";
-		//-->
-	</script>
+	<!--<script type="text/javascript">-->
+		<!--&lt;!&ndash;-->
+		<!--window.location="/error.html";-->
+		<!--//&ndash;&gt;-->
+	<!--</script>-->
 
 
 
@@ -236,18 +236,18 @@
 
 		<!-- CONTACT FORM-->
 		<div class="row">
-			<form role="form" action="/send" method="POST" class="contact-form">
+			<form onsubmit="return funcValidate()" role="form" action="/send" method="POST" class="contact-form">
 
 				<div class="col-md-12 wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-					<textarea name="message" required="required"  id="messageInput" class="form-control textarea-box" placeholder="Суть порушення та ПІБ судді"></textarea>
+					<textarea name="message" onchange='$(this).addClass("okValidInput");' id="messageInput" class="form-control textarea-box" placeholder="Суть порушення та ПІБ судді"></textarea>
 				</div>
 
 				<div class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
 					<div class="col-lg-6 col-sm-6">
-						<input type="text" id="numberInput" name="number" placeholder="№ справи або рішення (необов'язково)" class="form-control input-box">
+						<input type="text" onchange='$(this).addClass("okValidInput");' id="numberInput" name="number" placeholder="№ справи або рішення (необов'язково)" class="form-control input-box">
 					</div>
 					<div class="col-lg-6 col-sm-6">
-						<input type="text"  id="contactInput" name="contact" placeholder="Ваші контакти (необов'язково)" class="form-control input-box">
+						<input type="text" onchange='$(this).addClass("okValidInput");' id="contactInput" name="contact" placeholder="Ваші контакти (необов'язково)" class="form-control input-box">
 					</div>
 				</div>
 
