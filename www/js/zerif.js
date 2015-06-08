@@ -1,4 +1,4 @@
-    $( document ).ready(function() {
+     $( document ).ready(function() {
         $("#sendComplaint").click(function(){
             var numberInput  =  $("#numberInput")
             var messageInput = $("#messageInput")

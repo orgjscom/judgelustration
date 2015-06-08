@@ -1,6 +1,6 @@
 exports.funcSendEmail = function(sendObj){
     var nodemailer = require('nodemailer');
- dataToWriteGlobal = JSON.stringify(jsonObj);
+ //dataToWriteGlobal = JSON.stringify(jsonObj);
 
     var transporter = nodemailer.createTransport( {
         host: "mx1.hostinger.com.ua",
