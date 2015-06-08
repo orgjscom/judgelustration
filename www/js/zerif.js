@@ -35,7 +35,7 @@
             //}
         }
 
-        objValidate = funcValidate();
+        //objValidate = funcValidate();
     });
 
 
