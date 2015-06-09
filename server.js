@@ -1,13 +1,20 @@
 var express  = require('express');
-//var mongoose = require('mongoose');
-//var mail = require('./email');
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
 var json2xls = require('json2xls');
 var nodemailer = require('nodemailer');
-
 var app = express();
+
+var transporter = nodemailer.createTransport( {
+    host: "smtp.gmail.com",
+    secureConnection: true,
+    port: 587,
+    auth: {
+        user: 'judgelustration@gmail.com',
+        pass: 'Dshtrih2'
+    }
+});
 
 app.engine('html', require('hogan-express'));
 app.set('view options', {layout: true});
@@ -22,46 +29,83 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
 
+/**
+ *
+ * @type {string}
+ */
 var index  = "../www/index";
+
 app.get('/', function(req, res){
     res.render(index)
 });
 
+/**
+ *
+ * @type {string}
+ */
 var getQuestion  = "../www/question";
 app.get('/question', function(req, res){
     res.render(question, { "question": question })
 });
-
+/**
+ *
+ * @type {{}}
+ */
 var sendObj = {};
+
 app.post('/send', function(req, res){
+    /**
+     *
+     * @type {{message: *, number: (*|data.number|number|res.fields.number|qt.number|Ht.number), contact: (*|Document.contact)}}
+     */
     sendObj = {
         "message" :  req.body.message,
         "number"  :  req.body.number,
         "contact" :  req.body.contact
     };
+
     funcWriteJson(sendObj, res);
+
     try{
-     funcSendEmail(sendObj)
-    }catch(e){
+        funcSendEmail(sendObj)
+    } catch(e){
         console.log(e)
     }
-    res.writeHead(302, {
-        'Location': '/'
-    });
+
+    res.sweetAlert("Дякуємо!", "Вашу скаргу успішно відправлено, її буде розглянуто найближчим часом!", "success");
     res.end();
 });
-
+/**
+ *
+ * @type {Array}
+ */
 var dataToWriteGlobal = [];
+/**
+ *
+ * @type {string}
+ */
 var url = 'www/ok/data.json';
 var readFile = fs.readFileSync( url );
 var jsonObj = JSON.parse( readFile );
+/**
+ *
+ * @type {Array}
+ */
 var arr = [];
 for( var i = 0; i < jsonObj.length; i++){
     arr.push(JSON.stringify(jsonObj[i]))
 }
-
+/**
+ *
+ * @param sendObj
+ * @param res
+ */
 var funcWriteJson = function(sendObj, res){
     arr.push(JSON.stringify(sendObj));
+    /**
+     *
+     * @type {string}
+     */
     var dataToWrite = "[" + arr + "]";
     fs.writeFileSync( url , dataToWrite );
     dataToWriteGlobal = JSON.stringify(jsonObj);
@@ -72,9 +116,21 @@ var funcWriteJson = function(sendObj, res){
 
 dataToWriteGlobal = JSON.stringify(jsonObj);
 
+/**
+ *
+ * @param dataToWrite
+ * @param res
+ */
 var funcWriteExcel = function(dataToWrite, res){
+
     var data = JSON.parse(dataToWrite);
+
+    /**
+     *
+     * @type {*|exports}
+     */
     var xls = json2xls(data);
+
     try{
         fs.writeFileSync('www/ok/data.xlsx', xls, 'binary');
         dataToWriteGlobal = dataToWrite;
@@ -87,28 +143,31 @@ var funcWriteExcel = function(dataToWrite, res){
     }
 };
 
-
+/**
+ *
+ * @param dataToWrite
+ * @returns {*}
+ */
 var dataToWriteNewFunc = function(dataToWrite){
     return dataToWrite;
 };
 
-
+/**
+ *
+ * @type {string}
+ */
 var all  = "../www/all";
+
 app.get('/24', function(req, res){
     res.render(all, { "data": dataToWriteGlobal })
 });
 
+/**
+ *
+ * @param sendObj
+ */
 var funcSendEmail = function(sendObj) {
 
-    var transporter = nodemailer.createTransport( {
-        host: "mx1.hostinger.com.ua",
-        secureConnection: true,
-        port: 2525,
-        auth: {
-            user: 'admin@blagoustriy.net',
-            pass: '11111111'
-        }
-    });
     var htmlMgs =
         "<hr>Повідомлення - "	        + sendObj.message +
         "<hr>№ справи або рішення - "	+ sendObj.number  +

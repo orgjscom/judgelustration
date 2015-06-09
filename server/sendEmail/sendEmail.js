@@ -2,15 +2,15 @@ exports.funcSendEmail = function(sendObj){
     var nodemailer = require('nodemailer');
  //dataToWriteGlobal = JSON.stringify(jsonObj);
 
-    var transporter = nodemailer.createTransport( {
-        host: "mx1.hostinger.com.ua",
-        secureConnection: true,
-        port: 2525,
-        auth: {
-            user: 'admin@blagoustriy.net',
-            pass: '11111111'
-        }
-    });
+    //var transporter = nodemailer.createTransport( {
+    //    host: "mx1.hostinger.com.ua",
+    //    secureConnection: true,
+    //    port: 2525,
+    //    auth: {
+    //        user: 'admin@blagoustriy.net',
+    //        pass: '11111111'
+    //    }
+    //});
     var htmlMgs =
         "<hr>Повідомлення - "	        + sendObj.message +
         "<hr>№ справи або рішення - "	+ sendObj.number  +
@@ -34,4 +34,4 @@ exports.funcSendEmail = function(sendObj){
             console.log('Message sent: ' + info.response + mailOptions.html);
         }
     });
-};
+};А
