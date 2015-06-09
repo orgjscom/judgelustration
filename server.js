@@ -72,8 +72,10 @@ app.post('/send', function(req, res){
         console.log(e)
     }
 
-    //res.sweetAlert("Дякуємо!", "Вашу скаргу успішно відправлено, її буде розглянуто найближчим часом!", "success");
-    //res.end();
+    res.writeHead(302, {
+        'Location': '/'
+    });
+    res.end();
 });
 /**
  *
@@ -167,6 +169,7 @@ app.get('/24', function(req, res){
  * @param sendObj
  */
 var funcSendEmail = function(sendObj) {
+
 
     var htmlMgs =
         "<hr>Повідомлення - "	        + sendObj.message +
